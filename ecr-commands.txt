@@ -1,11 +1,11 @@
 // log in to ECR
-$(aws ecr get-login --no-include-email --region us-east-1)
+aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 651199432378.dkr.ecr.eu-central-1.amazonaws.com
 
 // build the docker image
 docker build -t youtube:latest .
 
 // tag the docker image
-docker tag <IMAGE_NAME> <ECR_URL>
+docker tag youtube:latest 651199432378.dkr.ecr.eu-central-1.amazonaws.com/youtube:latest
 
 // push to ECR
-docker push <ECR_URL>
+docker push 651199432378.dkr.ecr.eu-central-1.amazonaws.com/youtube:latest
